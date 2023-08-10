@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZGW_FICHA_SRV" xml:lang="es" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="MotivosSolicitud" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CodArea"/>
+                    <PropertyRef Name="CodMotsolic"/>
+                </Key>
+                <Property Name="CodArea" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Departamento o área" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CodMotsolic" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Código Tipo Solicitu" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TxtMotsolic" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Descripión Solicitud" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Prioridad" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="Prioridad" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="userName" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="objid"/>
+                    <PropertyRef Name="rut"/>
+                </Key>
+                <Property Name="objid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="rut" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="name" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="surname" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="planEstudio" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="objid"/>
+                </Key>
+                <Property Name="objid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="ID plan de estudio" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="codigo" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="descripcion" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="numeroActa" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="codArea"/>
+                    <PropertyRef Name="nroActa"/>
+                    <PropertyRef Name="peryr"/>
+                </Key>
+                <Property Name="codArea" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="ID area" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="nroActa" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="ID nro acta" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="peryr" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="actaVigente" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="fechaComite" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="nroSolicitud" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="idSolicitud"/>
+                </Key>
+                <Property Name="idSolicitud" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="cambiosEstado" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CodArea"/>
+                    <PropertyRef Name="EstadoSolic1"/>
+                    <PropertyRef Name="EstadoSolic2"/>
+                </Key>
+                <Property Name="CodArea" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Departamento o área" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EstadoSolic1" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Estado sol original" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EstadoSolic2" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Estado de solictud d" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="contrato" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Bukrs"/>
+                    <PropertyRef Name="ZnumContrato"/>
+                </Key>
+                <Property Name="Bukrs" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Sociedad" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ZnumContrato" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Numero de contrato" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ZcodPadreContrat" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Num.Contrato Padre" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ZnumRut" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Número ident." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="planEstudioSt" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="objid"/>
+                </Key>
+                <Property Name="objid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="ID plan de estudio" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="codigo" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Codigo externo" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="rut" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Rut estudiante" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="descripcion" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Plan de estudio descripcion" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="deuda" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="rut"/>
+                </Key>
+                <Property Name="rut" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Rut estudiante" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="sDeuda" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Layout" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Idlayout"/>
+                </Key>
+                <Property Name="Idlayout" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="ID Layout" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Desclayout" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Descripción Layout" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Campos" Type="Edm.String" Nullable="false" MaxLength="450" sap:unicode="false" sap:label="Texto (200 c.)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="cierreActa" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="codArea"/>
+                    <PropertyRef Name="nroActa"/>
+                    <PropertyRef Name="peryr"/>
+                </Key>
+                <Property Name="codArea" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="ID area" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="nroActa" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="ID nro acta" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="peryr" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="actaVigente" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="fechaComite" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="solicAbiertas" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="sinSolicitudes" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="formulario" m:HasStream="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="rut"/>
+                    <PropertyRef Name="nroSolicitud"/>
+                    <PropertyRef Name="idFormulario"/>
+                </Key>
+                <Property Name="rut" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="nroSolicitud" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Id único de solic" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="idFormulario" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="FichaEstadoSolicitud" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="idEstado"/>
+                </Key>
+                <Property Name="idEstado" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="descEstado" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="canal" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CodCanal"/>
+                </Key>
+                <Property Name="CodCanal" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Canal" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TxtCanal" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Descripción canal" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="Roles" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Usuario"/>
+                </Key>
+                <Property Name="Usuario" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Usuario" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Area" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Área o Departamento" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Rol" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Rol Usuario" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="VisualizaLog" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Visualiza Log?" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AdminActa" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Administra Actas?" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CargaAnexos" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Puede cargar anexos?" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Nombre" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Apellido" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="fechaSolicitud" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="nroSolicitud"/>
+                </Key>
+                <Property Name="nroSolicitud" Type="Edm.Binary" Nullable="false" MaxLength="16" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="desde" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="hasta" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="fechaCrea" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="resolucionAcademica" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="objid"/>
+                    <PropertyRef Name="begda"/>
+                    <PropertyRef Name="endda"/>
+                </Key>
+                <Property Name="objid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="ID resolucion" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="begda" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Resolucion desde" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="endda" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Resolucion hasta" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="rut" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Rut Estudiante" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="resolucion" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Resolución académica descripcion" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="name" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="nombre de estudiante" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="scObjid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="ID plan estudio" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="scText" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="peryr" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="año" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="perid" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="periodo" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="descripcion" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="sugerencia campo descripcion" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="comentario" Type="Edm.String" Nullable="false" MaxLength="70" sap:unicode="false" sap:label="sugerencia campo detalle solicitud" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="apoderado" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="objid"/>
+                </Key>
+                <Property Name="rut" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Rut Estudiante" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="objid" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="codigo" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="descripcion" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="solicitud" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="NroSolicitud"/>
+                    <PropertyRef Name="CodArea"/>
+                </Key>
+                <Property Name="NroSolicitud" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Id único de solic" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CodArea" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Cod de Area" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CodAreaDesc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Cod de Area descripcion" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RutSt" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="RUT Estudiante" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ObjidSt" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="ID del Estudiante" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NombreEstudiante" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Nombre de Estudiante" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ApellidoEstudiante" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Apellido de Estudiante" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MailEstudiante" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Mail del Estudiante" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ResolAcad" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="ID Resolución académica" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Begda" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Resolucion desde" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Endda" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Resolucion hasta" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ResolAcadDesc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Resolución académica descripcion" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ObjidSc" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="ID Plan de estudio" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Plan" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Plan" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Apoderado" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="ID apoderado" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ApoderadoNombre" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Nombre de apoderado" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CodMotsolic" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Código Tipo Solicitu" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CodMotsolicDesc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Codigo tipo Solicitud" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EstadoSolic" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Estado de solicitud" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EstadoSolicActualDesc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Estado de solicitud actual" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DescripcionSoli" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Descripción solic" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UserCreamvto" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Usuario creador soli" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FecModmvto" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Fecha modif movim" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UserModmvto" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Usuario modificación" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FecCreamvto" Type="Edm.String" MaxLength="8" sap:unicode="false" sap:label="Fecha creación de so" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NroActa" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Nro de acta comité" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CodCanal" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Canal" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CodCanalDesc" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Canal descripcion" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ResolucionCte" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="ResolucionCte" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ValorAcuerdo" Type="Edm.Decimal" Nullable="false" Precision="10" Scale="2" sap:unicode="false" sap:label="ValorAcuerdo" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NroCuotas" Type="Edm.String" MaxLength="2" sap:unicode="false" sap:label="NroCuotas" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Periodicidad" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Periodicidad" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TxtDescEstSol" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Detalle Solicitud" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DetalleCierre" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Detalle Cierre" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DetalleComite" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Detalle Comite" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Deuda" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Deuda" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NroContrato" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Numero de contrato" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DetalleAnulada" Type="Edm.String" Nullable="false" MaxLength="45" sap:unicode="false" sap:label="Detalle Anulada" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="layoutCab" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="idLayout"/>
+                </Key>
+                <Property Name="idLayout" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="descLayout" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="detalleCampos" Relationship="ZGW_FICHA_SRV.detalleCampos" FromRole="FromRole_detalleCampos" ToRole="ToRole_detalleCampos"/>
+            </EntityType>
+            <EntityType Name="layoutDet" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="idLayout"/>
+                    <PropertyRef Name="campo"/>
+                </Key>
+                <Property Name="idLayout" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="campo" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="estadoRol" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="EstadoSolic"/>
+                    <PropertyRef Name="Rol"/>
+                </Key>
+                <Property Name="EstadoSolic" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Estado de solicitud" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Rol" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Rol Usuario" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="logMovimientos" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CodArea"/>
+                    <PropertyRef Name="NroSolic"/>
+                    <PropertyRef Name="FecMovimiento"/>
+                    <PropertyRef Name="HorVomiento"/>
+                </Key>
+                <Property Name="RegTipo" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Mod o Cre" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CodArea" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Departamento o área" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ModDesc" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Modificacion en campo..." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NroSolic" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Id único de solicitu" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FecMovimiento" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Fecha que se crea el" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="HorVomiento" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Hora movimiento" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ObjidSt" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="ID del Estudiante" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RutSt" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Rut Estudiante" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ObjidSc" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="ID Plan de estudio" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CodSolic" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Código Tipo Solicitu" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EstadoSolic" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Estado de solicitud" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DescripcionSoli" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Descripción solic" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CodCanal" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Canal" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NroContrato" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Numero de contrato" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Apoderado" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Socio comercial" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Deuda" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3" sap:unicode="false" sap:label="Deuda" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ResolAcad" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Resolución académica" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BegdaRes" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha llave inicio" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EnddaRes" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha llave final" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TxtDescEstsol" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Cuad texto est Solic" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FecCreamvto" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha creación de so" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="HorCreamvto" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Hora creación solic" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UserCreamvto" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Usuario creador soli" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FecModmvto" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Fecha modif movim" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="HorModmvto" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Hora modif" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UserModmvto" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Usuario modificación" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ObjidScDesc" Type="Edm.String"/>
+                <Property Name="CodSolicDesc" Type="Edm.String"/>
+                <Property Name="CodCanalDesc" Type="Edm.String"/>
+                <Property Name="detalleComite" Type="Edm.String"/>
+                <Property Name="detalleCierre" Type="Edm.String"/>
+            </EntityType>
+            <EntityType Name="formularios" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="idFormulario"/>
+                </Key>
+                <Property Name="idFormulario" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="codArea" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="nombre" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <Association Name="detalleCampos" sap:content-version="1">
+                <End Type="ZGW_FICHA_SRV.layoutCab" Multiplicity="1" Role="FromRole_detalleCampos"/>
+                <End Type="ZGW_FICHA_SRV.layoutDet" Multiplicity="*" Role="ToRole_detalleCampos"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_detalleCampos">
+                        <PropertyRef Name="idLayout"/>
+                    </Principal>
+                    <Dependent Role="ToRole_detalleCampos">
+                        <PropertyRef Name="idLayout"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZGW_FICHA_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="MotivosSolicitudSet" EntityType="ZGW_FICHA_SRV.MotivosSolicitud" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="userNameSet" EntityType="ZGW_FICHA_SRV.userName" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="planEstudioSet" EntityType="ZGW_FICHA_SRV.planEstudio" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="numeroActaSet" EntityType="ZGW_FICHA_SRV.numeroActa" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="nroSolicitudSet" EntityType="ZGW_FICHA_SRV.nroSolicitud" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="cambiosEstadoSet" EntityType="ZGW_FICHA_SRV.cambiosEstado" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="contratoSet" EntityType="ZGW_FICHA_SRV.contrato" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="planEstudioStSet" EntityType="ZGW_FICHA_SRV.planEstudioSt" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="deudaSet" EntityType="ZGW_FICHA_SRV.deuda" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="LayoutSet" EntityType="ZGW_FICHA_SRV.Layout" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="cierreActaSet" EntityType="ZGW_FICHA_SRV.cierreActa" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="formularioSet" EntityType="ZGW_FICHA_SRV.formulario" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="FichaEstadoSolicitudSet" EntityType="ZGW_FICHA_SRV.FichaEstadoSolicitud" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="canalSet" EntityType="ZGW_FICHA_SRV.canal" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="RolesSet" EntityType="ZGW_FICHA_SRV.Roles" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="fechaSolicitudSet" EntityType="ZGW_FICHA_SRV.fechaSolicitud" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="resolucionAcademicaSet" EntityType="ZGW_FICHA_SRV.resolucionAcademica" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="apoderadoSet" EntityType="ZGW_FICHA_SRV.apoderado" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="solicitudSet" EntityType="ZGW_FICHA_SRV.solicitud" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="layoutCabSet" EntityType="ZGW_FICHA_SRV.layoutCab" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="layoutDetSet" EntityType="ZGW_FICHA_SRV.layoutDet" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="estadoRolSet" EntityType="ZGW_FICHA_SRV.estadoRol" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="logMovimientosSet" EntityType="ZGW_FICHA_SRV.logMovimientos" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="formulariosSet" EntityType="ZGW_FICHA_SRV.formularios" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <AssociationSet Name="detalleCamposSet" Association="ZGW_FICHA_SRV.detalleCampos" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="layoutCabSet" Role="FromRole_detalleCampos"/>
+                    <End EntitySet="layoutDetSet" Role="ToRole_detalleCampos"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link rel="self" href="https://vhudpudqci.sap.udp.cl:44300/sap/opu/odata/sap/ZGW_FICHA_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://vhudpudqci.sap.udp.cl:44300/sap/opu/odata/sap/ZGW_FICHA_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
